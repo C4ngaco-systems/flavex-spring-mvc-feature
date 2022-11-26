@@ -1,6 +1,8 @@
 package com.mundotaci.projetotaci.controller;
 import javax.validation.Valid;
 
+import com.mundotaci.projetotaci.statics.Estado;
+import com.mundotaci.projetotaci.statics.EstadosEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +14,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.mundotaci.projetotaci.entities.Store;
 import com.mundotaci.projetotaci.repository.StoreRepository;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
+
 @Controller
 public class StoreController {
 
     @Autowired
     private StoreRepository storeRepository;
 
+    private List<Estado> estadosDiponiveis;
+    StoreController() {
+        estadosDiponiveis = getEstados();
+    }
+
     @GetMapping("/formulario")
-    public String formularioLoja(Store store){
+    public String formularioLoja(Model model, Store store){
+
+        model.addAttribute("estados", estadosDiponiveis);
         return "addLoja";
     }
 
@@ -39,8 +54,33 @@ public class StoreController {
 
 
         Store store = storeRepository.findById(storeId).orElseThrow(() -> new IllegalArgumentException("Invalid person storeId:" + storeId));
+        int stateId = getEstadoId(store.getState());
+
         model.addAttribute("store", store);
+        model.addAttribute("estados", estadosDiponiveis);
+        model.addAttribute("stateId", stateId);
+
+                
         return "editarLoja";
+    }
+
+    private int getEstadoId(String state) {
+        int selectedId = 0;
+        for(int i=0; i < estadosDiponiveis.size(); i++) {
+            if (estadosDiponiveis.get(i).nome.equals(state)) {
+                selectedId = i;
+            }
+        }
+        return selectedId;
+    }
+
+    public List<Estado> getEstados() {
+        String[] estadosString = Stream.of(EstadosEnum.values()).map(Enum::name).toArray(String[]::new);
+        List<Estado> estados = new ArrayList<>();
+        for (int i=0; i < estadosString.length; i++) {
+            estados.add(new Estado(i, estadosString[i]));
+        }
+        return estados;
     }
 
     // Atualiza Loja
