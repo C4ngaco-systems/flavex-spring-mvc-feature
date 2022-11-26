@@ -5,6 +5,7 @@
 .btn-taci {
     background: #eb547f;
     color: #fff;
+    border: 0;
 }
 
 .btn-taci:hover {
