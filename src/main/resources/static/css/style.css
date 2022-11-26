@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.btn-taci {
+    background: #eb547f;
+    color: #fff;
+}
+
+.btn-taci:hover {
+    background: transparent;
+    border: 2px solid #eb547f;
+    color:  #eb547f;
+}
+
+.text-indent {
+    text-indent: 8px;
+}
