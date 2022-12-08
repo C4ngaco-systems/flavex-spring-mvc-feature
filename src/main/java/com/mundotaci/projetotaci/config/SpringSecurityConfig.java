@@ -34,7 +34,7 @@ public class SpringSecurityConfig extends org.springframework.security.config.an
                 .and()
                 .formLogin()
                 	.defaultSuccessUrl("/index")
-					.loginPage("/store/login")
+					.loginPage("/login")
 					.permitAll()
 					.and()
                 .logout()

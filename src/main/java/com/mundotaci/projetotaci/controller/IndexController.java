@@ -17,8 +17,18 @@ public class IndexController {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @GetMapping("/")
+    public String main(Model model) {
+        Query query = (Query) entityManager.createQuery("select s from Store s", Store.class);
+
+        List<Store> stories = query.getResultList();
+        model.addAttribute("stories", stories);
+
+        return "index";
+    }
+
     @GetMapping("/index")
-    public String mostrarLoja(Model model) {
+    public String index(Model model) {
         Query query = (Query) entityManager.createQuery("select s from Store s", Store.class);
 
         List<Store> stories = query.getResultList();

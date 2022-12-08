@@ -22,7 +22,7 @@
                         <p class="card-text">vendas: 999 unidades</p>
                         <p class="card-text">cursos: 15</p>
                         <div class="d-flex gap-2 justify-content-between">
-                            <a th:href="@{/store/formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
+                            <a th:href="@{/formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
                                class="btn btn-secondary">Editar</a>
                             <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">
                                 Deletar

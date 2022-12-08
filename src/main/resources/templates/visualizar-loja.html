@@ -4,8 +4,13 @@
         <div th:replace="~{layouts :: navbar}"></div>
         <section class="container-fluid bg-light mb-3">
 
+            <span sec:authorize="isAuthenticated()">
+                | Usuário logado: <span sec:authentication="name"></span> |
+                Perfil: <span style="margin-left: 3px; text-decoration:underline; color: red;" th:each="permission: ${#authentication.principal.authorities}" th:text="${permission.description} "></span> |
+                <a th:href="@{/login}">Sign Out</a>
+            </span>
             <!-- <input type="text" id="tel"> -->
-    
+            
             <form class="needs-validation" novalidate>
                 <input class="btn btn-primary" 
                 type="button" value="Editar Cadastro" onclick="desabilitar('sim')">
