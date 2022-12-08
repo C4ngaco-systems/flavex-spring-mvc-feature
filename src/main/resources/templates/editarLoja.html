@@ -7,7 +7,7 @@
     <section class="container bg-light bg-light mb-3">
         <div th:replace="~{layouts :: botao-upload}"></div>
 
-        <form th:object="${store}" th:action="@{/atualizar/{storeId}(storeId=${store.storeId})}" method="post">
+        <form th:object="${store}" th:action="@{/store/atualizar/{storeId}(storeId=${store.storeId})}" method="post">
             <div th:replace="~{layouts :: formulario}"></div>
             <div th:replace="~{layouts :: botoes-formulario}"></div>
         </form>

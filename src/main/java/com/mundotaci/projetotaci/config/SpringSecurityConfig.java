@@ -29,8 +29,8 @@ public class SpringSecurityConfig extends org.springframework.security.config.an
 
         http.csrf().disable()
                 .authorizeRequests()
-					.antMatchers("/pessoa/delete/**").hasAnyRole("ADMIN")
-					.antMatchers("/pessoa/**", "/home", "/").authenticated()
+					.antMatchers("/store/delete/**").hasAnyRole("ADMIN")
+					.antMatchers("/store/**", "/home", "/").authenticated()
                 .and()
                 .formLogin()
                 	.defaultSuccessUrl("/home")
