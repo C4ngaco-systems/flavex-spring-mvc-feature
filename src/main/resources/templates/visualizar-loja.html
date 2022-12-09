@@ -7,7 +7,7 @@
             <span sec:authorize="isAuthenticated()">
                 | Usuário logado: <span sec:authentication="name"></span> |
                 Perfil: <span style="margin-left: 3px; text-decoration:underline; color: red;" th:each="permission: ${#authentication.principal.authorities}" th:text="${permission.description} "></span> |
-                <a th:href="@{/login}">Sign Out</a>
+                <a th:href="@{/logout}">Sign Out</a>
             </span>
             <!-- <input type="text" id="tel"> -->
             
