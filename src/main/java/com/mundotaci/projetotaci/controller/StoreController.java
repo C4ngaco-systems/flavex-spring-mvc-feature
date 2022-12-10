@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.mundotaci.projetotaci.entities.Store;
 import com.mundotaci.projetotaci.repository.StoreRepository;
@@ -20,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-@RestController
-@RequestMapping("/store")
+@RequestMapping("store")
+@Controller
 public class StoreController {
 
     @Autowired
