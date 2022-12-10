@@ -2,7 +2,8 @@
 
 <head th:replace="~{layouts :: head}"></head>
 
-<body class="bg-light">
+<body class="bg-light h-100 d-flex flex-column">
+    <div th:replace="~{layouts :: mobile-navbar}"></div>
     <div th:replace="~{layouts :: navbar}"></div>
     <section class="container bg-light bg-light mb-3">
         <div th:replace="~{layouts :: botao-upload}"></div>

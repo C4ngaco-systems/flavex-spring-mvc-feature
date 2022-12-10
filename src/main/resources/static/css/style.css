@@ -17,3 +17,121 @@
 .text-indent {
     text-indent: 8px;
 }
+
+fieldset{
+    border: #d5d5d5 thin solid;
+    padding: 1em;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.formulario-de-loja{
+    max-width: 700px;
+    margin: auto;
+}
+/*Bootstrap personalizado */
+
+card-MT{
+    width: 10px;
+}
+
+.collapse.show{
+    position: absolute;
+    inset: 30% 0 0 60%;
+}
+
+footer{
+    margin-top: 20px;
+}
+
+/*Ajuste botão editar cadastro e submeter formulário*/
+
+.btn-primary {
+    margin-top: 0.5rem;
+    background-color: #EB8FA9;
+    border-color: #eb547f;
+    color: #fff;
+
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #eb547f;
+    border-color: #EB8FA9;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #EB8FA9;
+    border-color: #eb547f;
+    box-shadow: 0 0 0 0.25rem #eb547f;
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #1f1f1f; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+/* hidden menu <a> style */
+.hidden-navbar{
+    padding: 5px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+
+
