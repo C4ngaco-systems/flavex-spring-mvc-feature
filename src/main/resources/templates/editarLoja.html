@@ -10,7 +10,7 @@
 
         <form th:object="${store}" th:action="@{/store/atualizar/{storeId}(storeId=${store.storeId})}" method="post">
             <div th:replace="~{layouts :: formulario}"></div>
-            <div th:replace="~{layouts :: botoes-formulario}"></div>
+            <div th:replace="~{layouts :: botoes-formulario-editar}"></div>
         </form>
     </section>
     <div th:replace="~{layouts :: footer}"></div>
