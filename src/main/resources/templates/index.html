@@ -14,6 +14,7 @@
                 Lojista</span></a></button>
         </div>
 
+        <div sec:authorize="hasAnyAuthority('ADMIN')"></div> <!-- Comando testado dentro e fora do codigo dos botões. Se dentro, os botões apagam. Se fora, nenhum usuário tem permissão -->
         <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
             <div th:each="store : ${stories}" class="col">
                     <div class="card">
@@ -22,7 +23,7 @@
                         <h5 class="card-title" th:text="${store.nameStore}"></h5>
                         <p class="card-text">vendas: 999 unidades</p>
                         <p class="card-text">cursos: 15</p>
-                        <div class="d-flex gap-2 justify-content-between">
+                        <div class="d-flex gap-2 justify-content-between"> 
                             <a th:href="@{/store/formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
                                class="btn btn-secondary">Editar</a>
                             <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">
@@ -32,7 +33,7 @@
 
                     </div>
                 </div>
-
+                <!-- sec:authorize="hasAnyAuthority('ADMIN')" -->
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

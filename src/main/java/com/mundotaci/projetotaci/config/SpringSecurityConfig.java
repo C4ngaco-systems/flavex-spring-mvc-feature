@@ -28,9 +28,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+       
         http.csrf().disable()
                 .authorizeRequests()
-					.antMatchers("/store/**", "/index", "/", "/store/delete/**").authenticated()
+					.antMatchers("/store/delete/**", "/store/atualizar/**").hasAnyAuthority("ADMIN")  
+                    // Ajuste conforme orientado pelo professor
+                    .antMatchers("/store/**", "/index", "/").authenticated()
                 .and()
                 .formLogin()
                 	.defaultSuccessUrl("/index")
