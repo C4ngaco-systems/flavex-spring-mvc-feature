@@ -17,8 +17,8 @@
         <div sec:authorize="hasAnyAuthority('ADMIN')"></div> <!-- Comando testado dentro e fora do codigo dos botões. Se dentro, os botões apagam. Se fora, nenhum usuário tem permissão -->
         <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 g-4">
             <div th:each="store : ${stories}" class="col">
-                    <div class="card">
-                    <img th:src="${store.image}" class="card-img-top" alt="">
+                <div class="card img-thumbnail">
+                    <img th:src="${store.image}" class="card-image-fixed" alt="">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${store.nameStore}"></h5>
                         <p class="card-text">vendas: 999 unidades</p>

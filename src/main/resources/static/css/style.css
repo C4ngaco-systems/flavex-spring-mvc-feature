@@ -1,5 +1,14 @@
+
+
 * {
     box-sizing: border-box;
+}
+
+/* cards */
+
+.card-image-fixed{
+
+    aspect-ratio: 1 / 1;
 }
 
 .btn-taci {
