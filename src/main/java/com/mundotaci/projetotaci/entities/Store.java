@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor @Getter @Setter 
+@AllArgsConstructor @Getter @Setter
 @Entity
 @Table(name = "store")
 public class Store {
@@ -48,7 +48,9 @@ public class Store {
     @PrePersist
     @PreUpdate
     public void removerFormacatao() {
-        this.cnpj.replaceAll("[^0-9]", "");
+        String formatedCNPJ = this.cnpj.replaceAll("[^0-9]", "");
+        setCnpj(formatedCNPJ);
+        System.out.println(this.cnpj);
     }
 
 }
