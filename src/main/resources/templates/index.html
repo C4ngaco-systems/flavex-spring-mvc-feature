@@ -28,8 +28,8 @@
                 Lojista</span></a></button>
         </div>
 
-        <div sec:authorize="hasAnyAuthority('ADMIN')"></div> <!-- Comando testado dentro e fora do codigo dos botões. Se dentro, os botões apagam. Se fora, nenhum usuário tem permissão -->
-        <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2 gap-4">
+        <div sec:authorize="hasAnyAuthority('admin')"></div> <!-- Comando testado dentro e fora do codigo dos botões. Se dentro, os botões apagam. Se fora, nenhum usuário tem permissão -->
+        <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
             <div th:each="store : ${stories}" class="col">
                 <div class="card img-thumbnail">
                     <img th:src="${store.image}" class="card-image-fixed" alt="">
