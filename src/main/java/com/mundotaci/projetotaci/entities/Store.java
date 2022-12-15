@@ -1,10 +1,6 @@
 package com.mundotaci.projetotaci.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -48,5 +44,11 @@ public class Store {
     private String email;
     @NotBlank
     private String image;
+
+    @PrePersist
+    @PreUpdate
+    public void removerFormacatao() {
+        this.cnpj.replaceAll("[^0-9]", "");
+    }
 
 }
