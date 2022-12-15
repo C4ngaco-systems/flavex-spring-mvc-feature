@@ -57,7 +57,17 @@ public class User implements  UserDetails {
 	@JoinTable(name = "user_permission",  joinColumns = {@JoinColumn (name = "id_user")}, 
 	inverseJoinColumns = {@JoinColumn (name = "id_permission")})
 	private List<Permission> permissions;
-	
+
+	public User(String userName, String fullName, String password, Boolean accountNonExpired, Boolean accountNonLocked, Boolean credentialsNonExpired, Boolean enabled) {
+		this.userName = userName;
+		this.fullName = fullName;
+		this.password = password;
+		this.accountNonExpired = accountNonExpired;
+		this.accountNonLocked = accountNonLocked;
+		this.credentialsNonExpired = credentialsNonExpired;
+		this.enabled = enabled;
+	}
+
 	//adicionado
 	public List<String> getRoles() {
 		List<String> roles = new ArrayList<>();

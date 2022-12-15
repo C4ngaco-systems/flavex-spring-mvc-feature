@@ -1,6 +1,9 @@
 package com.mundotaci.projetotaci.controller;
 import javax.validation.Valid;
 
+import com.mundotaci.projetotaci.entities.Permission;
+import com.mundotaci.projetotaci.entities.User;
+import com.mundotaci.projetotaci.repository.UserRepository;
 import com.mundotaci.projetotaci.statics.Estado;
 import com.mundotaci.projetotaci.statics.EstadosEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,8 @@ public class StoreController {
 
     @Autowired
     private StoreRepository storeRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     private List<Estado> estadosDiponiveis;
     StoreController() {
@@ -43,11 +48,24 @@ public class StoreController {
         if(result.hasFieldErrors()){
             return "redirect:/formulario";
         }
-        
+
+        User user = new User(
+                store.getEmail(),
+                store.getNameStore(),
+                "e8d95a51f3af4a3b134bf6bb680a213a",
+                true,
+                true,
+                true,
+                true
+        );
+
         storeRepository.save(store);
+        userRepository.save(user);
 
         return "redirect:/index";
     }
+
+
 
     @GetMapping("/formulario/{storeId}")
     public String atualizarCadastro(Model model, @PathVariable(name="storeId") Long storeId){
