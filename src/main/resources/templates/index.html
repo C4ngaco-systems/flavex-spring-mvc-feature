@@ -6,8 +6,25 @@
         <div th:replace="~{layouts :: mobile-navbar}"></div>
         <div th:replace="~{layouts :: navbar}"></div>
     <section class="container bg-light mb-3 d-flex flex-column gap-2">
-        <h1>Lojas Associadas</h1>
-        <input type="search" class="text-indent input-group mb-0 mt-4 rounded" placeholder="Pesquisar Lojas">
+        <form th:action="@{/search}" method="get">
+            <h1>Lojas Associadas</h1>
+            <div class="row">
+                <div class="col-8">
+                    <input type="text" name="findParam" th:value="${findParam}" class="form-control" placeholder="Pesquisar Lojas">
+                </div>
+
+                <div class="col-2">
+                    <button type="submit" class="btn btn-info">Pesquisar</button>
+                </div>
+
+                <div class="col-2">
+                    <button type="submit" class="btn btn-info">Limpar</button>
+                </div>
+
+            </div>
+        </form>
+
+
         <div>
             <button type="button" class="rounded"><a class="btn d-flex gap-2 align-items-center" href="/store/formulario"><i
                         class="fas fa-plus-circle"></i><span>Adicionar
