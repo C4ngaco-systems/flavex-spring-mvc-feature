@@ -39,41 +39,14 @@
                         <p class="card-text">cursos: 15</p>
                         <div class="d-flex gap-2 justify-content-between"> 
                             <a th:href="@{/store/formulario/{storeId}(storeId=${store.storeId})}" th:method="get"
-                               class="btn btn-secondary">Editar</a>
-                            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">
-                                Deletar
-                            </a>
+                               class="btn btn-primary">Vizualizar Loja</a>
                         </div>
 
                     </div>
                 </div>
                 <!-- sec:authorize="hasAnyAuthority('ADMIN')" -->
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h3>A loja será excluida permanentemente!</h3>
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-danger"
-                                   th:href="@{/store/delete/{storeId}(storeId=${store.storeId})}" th:method="delete" >Sim</a>
-                                <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Não</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-
-
-
-
     </section>
     <div th:replace="~{layouts :: footer}"></div>
 

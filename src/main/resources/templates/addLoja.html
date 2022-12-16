@@ -8,11 +8,8 @@
     <section class="container bg-light bg-light mb-3">
         <div th:replace="~{layouts :: botao-upload}"></div>
         <form th:object="${store}" th:action="@{/store/adicionar}" method="post">
-            <div th:replace="~{layouts :: formulario}"></div>
-            <div class="text-center">
-                <a href="../index"><input type="button" class="btn btn-danger" value="Cancelar"></a>
-                <input type="submit" value="Salvar" id="botao" class="btn btn-success">
-            </div>
+            <div th:replace="~{layouts :: formulario-salvar}"></div>
+            <div th:replace="~{layouts :: botoes-formulario-salvar}"></div>
         </form>
     </section>
     <div th:replace="~{layouts :: footer}"></div>

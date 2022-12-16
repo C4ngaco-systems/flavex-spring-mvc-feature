@@ -83,16 +83,20 @@
         <h1> Formulário de loja </h1>
     </div>
 
-    <!-- formulario -->
+    <!-- formulario EDITAR-->
     <!-- th:field serve para validação do formulario. Não seguirá se o campo nao for preenchido
     O campo name é não precisa ser preenchido quando o thfield estiver preenchido para coleta dos dados no banco de dados -->
-    <div th:fragment="formulario" class="formulario-de-loja">
+    <div th:fragment="formulario-editar" class="formulario-de-loja-editar">
         <fieldset>
-            <legend>Dados da loja</legend>
+            <div class="d-flex justify-content-between">
+                <legend>Dados da loja</legend>
+                <div class="btn btn-warning" id="btn-editar" onclick="handleEdit()">Editar</div>
+            </div>
+
             <div class="form-group">
                 <label for="cnpj" class="form-label">Cnpj:</label>
-                <input th:field="*{cnpj}" type="text" class="form-control" th:errorclass="is-invalid"
-                    placeholder="00.000.000/0000-00" maxlength="18" required id="cnpj-input">
+                <input disabled th:field="*{cnpj}" type="text" class="form-control cnpj-input" th:errorclass="is-invalid"
+                    placeholder="00.000.000/0000-00" maxlength="18" required>
                 <div class="invalid-feedback" th:errors="*{cnpj}">
                     Insira o CNPJ da loja.
                 </div>
@@ -100,7 +104,7 @@
 
             <div class="form-group">
                 <label for="nameStore" class="form-label">Nome da loja:</label>
-                <input th:field="*{nameStore}" type="text" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{nameStore}" type="text" class="form-control" th:errorclass="is-invalid"
                        placeholder="Insira o nome da loja" maxlength="30" required>
                 <div class="invalid-feedback" th:errors="*{nameStore}">
                     Insira o nome da loja
@@ -109,7 +113,7 @@
 
             <div class="form-group">
                 <label for="phone" class="form-label">Telefone:</label>
-                <input th:field="*{phone}" type="text" name="phone" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{phone}" type="text" name="phone" class="form-control" th:errorclass="is-invalid"
                        id="phone" placeholder="(00)0000-0000" maxlength="12" required>
                 <div class="invalid-feedback">
                     Insira o telefone
@@ -118,7 +122,7 @@
 
             <div class="form-group">
                 <label for="email" class="form-label">E-mail:</label>
-                <input th:field="*{email}" type="email" name="email" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{email}" type="email" name="email" class="form-control" th:errorclass="is-invalid"
                        id="email" maxlength="100" placeholder="Insira o e-mail de acesso da loja" required>
                 <div class="invalid-feedback">
                     O e-mail deve possuir '@'
@@ -127,7 +131,7 @@
 
             <div class="form-group">
                 <label for="image" class="form-label">Imagem:</label>
-                <input th:field="*{image}" type="url" name="image" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{image}" type="url" name="image" class="form-control" th:errorclass="is-invalid"
                        id="image" placeholder="Insira a URL da logo da loja" required>
                 <div class="invalid-feedback">
                 </div>
@@ -138,7 +142,7 @@
             <legend>Endereço da loja</legend>
             <div class="form-group">
                 <label for="cep" class="form-label">CEP</label>
-                <input th:field="*{cep}" type="text" name="cep" class="form-control" th:errorclass="is-invalid" id="cep"
+                <input disabled th:field="*{cep}" type="text" name="cep" class="form-control" th:errorclass="is-invalid" id="cep"
                        placeholder="XXXXX-XXX" maxlength="12" required>
                 <div class="invalid-feedback">
                     Insira o CEP
@@ -147,7 +151,7 @@
 
             <div class="form-group">
                 <label for="adress" class="form-label">Endereço</label>
-                <input th:field="*{adress}" type="text" class="form-control" th:errorclass="is-invalid" id="adress"
+                <input disabled th:field="*{adress}" type="text" class="form-control" th:errorclass="is-invalid" id="adress"
                     placeholder="Rua dos Bobos, nº 0" required>
                 <div class="invalid-feedback">
                     Insira o endereço da loja
@@ -157,7 +161,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="city" class="form-label">Cidade</label>
-                    <input th:field="*{city}" type="text" class="form-control" th:errorclass="is-invalid" id="city"
+                    <input disabled th:field="*{city}" type="text" class="form-control" th:errorclass="is-invalid" id="city"
                            required>
                     <div class="invalid-feedback">
                         Insira o a cidade da loja
@@ -170,7 +174,7 @@
                 <!--          <select>
                               <option th:each="estado : ${estados}" th:text="${estado.nome}" th:value="${estado.nome}"></option>
                           </select>-->
-                <select name="state" id="state" class="form-control" th:errorclass="is-invalid" required>
+                <select disabled name="state" id="state" class="form-control" th:errorclass="is-invalid" required>
                     <option>Selecione</option>
                     <option th:each="estado : ${estados}" th:text="${estado.nome}" th:value="${estado.nome}" th:selected="${estado.id == stateId}"></option>
                 </select>
@@ -181,7 +185,7 @@
             <legend>Dados do proprietário</legend>
             <div class="form-group">
                 <label for="owner" class="form-label">Responsável:</label>
-                <input th:field="*{owner}" type="text" name="owner" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{owner}" type="text" name="owner" class="form-control" th:errorclass="is-invalid"
                     id="owner" maxlength="20" required>
                 <div class="invalid-feedback">
                     Insira o nome do responsável da loja.
@@ -190,7 +194,7 @@
 
             <div class="form-group">
                 <label for="celPhone" class="form-label">Celular</label>
-                <input th:field="*{celPhone}" type="text" name="celPhone" class="form-control" th:errorclass="is-invalid"
+                <input disabled th:field="*{celPhone}" type="text" name="celPhone" class="form-control" th:errorclass="is-invalid"
                     id="celPhone" placeholder="(00)-00000-0000" maxlength="12" required>
                 <div class="invalid-feedback">
                     Insira o Celular
@@ -199,29 +203,141 @@
 
         </fieldset>
 
+    </div>
+
+
+<!--                           Formulario pra salvar                         -->
+<div th:fragment="formulario-salvar" class="formulario-de-loja">
+    <fieldset>
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck" required>
-                <label class="form-check-label" for="gridCheck">
-                    Clique em mim
-                </label>
+            <label for="cnpj" class="form-label">Cnpj:</label>
+            <input th:field="*{cnpj}" type="text" class="form-control cnpj-input" th:errorclass="is-invalid"
+                   placeholder="00.000.000/0000-00" maxlength="18" required>
+            <div class="invalid-feedback" th:errors="*{cnpj}">
+                Insira o CNPJ da loja.
             </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <label for="nameStore" class="form-label">Nome da loja:</label>
+            <input th:field="*{nameStore}" type="text" class="form-control" th:errorclass="is-invalid"
+                   placeholder="Insira o nome da loja" maxlength="30" required>
+            <div class="invalid-feedback" th:errors="*{nameStore}">
+                Insira o nome da loja
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="form-label">Telefone:</label>
+            <input th:field="*{phone}" type="text" name="phone" class="form-control" th:errorclass="is-invalid"
+                   id="phone" placeholder="(00)0000-0000" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o telefone
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">E-mail:</label>
+            <input th:field="*{email}" type="email" name="email" class="form-control" th:errorclass="is-invalid"
+                   id="email" maxlength="100" placeholder="Insira o e-mail de acesso da loja" required>
+            <div class="invalid-feedback">
+                O e-mail deve possuir '@'
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="image" class="form-label">Imagem:</label>
+            <input th:field="*{image}" type="url" name="image" class="form-control" th:errorclass="is-invalid"
+                   id="image" placeholder="Insira a URL da logo da loja" required>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Endereço da loja</legend>
+        <div class="form-group">
+            <label for="cep" class="form-label">CEP</label>
+            <input th:field="*{cep}" type="text" name="cep" class="form-control" th:errorclass="is-invalid" id="cep"
+                   placeholder="XXXXX-XXX" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o CEP
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="adress" class="form-label">Endereço</label>
+            <input th:field="*{adress}" type="text" class="form-control" th:errorclass="is-invalid" id="adress"
+                   placeholder="Rua dos Bobos, nº 0" required>
+            <div class="invalid-feedback">
+                Insira o endereço da loja
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="city" class="form-label">Cidade</label>
+                <input th:field="*{city}" type="text" class="form-control" th:errorclass="is-invalid" id="city"
+                       required>
+                <div class="invalid-feedback">
+                    Insira o a cidade da loja
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-1.5">
+            <label for="state" class="form-label">Estado</label>
+            <!--          <select>
+                          <option th:each="estado : ${estados}" th:text="${estado.nome}" th:value="${estado.nome}"></option>
+                      </select>-->
+            <select name="state" id="state" class="form-control" th:errorclass="is-invalid" required>
+                <option>Selecione</option>
+                <option th:each="estado : ${estados}" th:text="${estado.nome}" th:value="${estado.nome}" th:selected="${estado.id == stateId}"></option>
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Dados do proprietário</legend>
+        <div class="form-group">
+            <label for="owner" class="form-label">Responsável:</label>
+            <input th:field="*{owner}" type="text" name="owner" class="form-control" th:errorclass="is-invalid"
+                   id="owner" maxlength="20" required>
+            <div class="invalid-feedback">
+                Insira o nome do responsável da loja.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="celPhone" class="form-label">Celular</label>
+            <input th:field="*{celPhone}" type="text" name="celPhone" class="form-control" th:errorclass="is-invalid"
+                   id="celPhone" placeholder="(00)-00000-0000" maxlength="12" required>
+            <div class="invalid-feedback">
+                Insira o Celular
+            </div>
+        </div>
+
+    </fieldset>
+
+</div>
 
 
-    <!-- Botoes formulario -->
-    <div th:fragment="botoes-formulario" style="margin-top: 2px">
-        <div class="text-center">
-            <a href="../index"  class="btn btn-danger">Cancelar</a>
-            <input type="submit" value="Salvar" id="botao" class="btn btn-success">
+    <!-- Botoes formulario salvar-->
+    <div th:fragment="botoes-formulario-salvar" class="mt-3">
+        <div class="text-center d-flex justify-content-center gap-2">
+            <a th:href="@{/index}"  class="btn btn-secondary">Cancelar</a>
+            <input type="submit" value="Salvar" id="botao" class="btn btn-success ml-3">
         </div>
     </div>
 
-<div th:fragment="botoes-formulario-editar" style="margin-top: 2px">
-    <div class="text-center">
-        <a href="../../index"  class="btn btn-danger">Cancelar</a>
-        <input type="submit" value="Salvar" id="botao" class="btn btn-success">
+<!-- Botoes formulario editar-->
+<div th:fragment="botoes-formulario-editar" class="mt-3">
+    <div class="text-center d-flex justify-content-center gap-2">
+        <a th:href="@{/index}"  class="btn btn-secondary">Cancelar</a>
+        <input disabled type="submit" value="Salvar" id="botao" class="btn btn-success">
+        <a data-bs-toggle="modal" data-bs-target="#modalDelete" class="btn btn-danger">
+            Deletar
+        </a>
     </div>
 </div>
 
@@ -233,3 +349,7 @@
             </div>
         </footer>
     </div>
+
+
+
+

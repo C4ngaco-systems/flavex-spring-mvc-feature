@@ -55,8 +55,11 @@ footer{
 
 /*Ajuste botão editar cadastro e submeter formulário*/
 
+.search-btn-wrapper{
+    width: fit-content;
+}
+
 .btn-primary {
-    margin-top: 0.5rem;
     background-color: #EB8FA9;
     border-color: #eb547f;
     color: #fff;
@@ -142,5 +145,8 @@ footer{
     .sidebar a {font-size: 18px;}
 }
 
+#btn-editar.btn-disabled:hover {
+    cursor: not-allowed;
+}
 
 
