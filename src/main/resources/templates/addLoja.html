@@ -7,7 +7,7 @@
     <div th:replace="~{layouts :: navbar}"></div>
     <section class="container bg-light bg-light mb-3">
         <div th:replace="~{layouts :: botao-upload}"></div>
-        <form th:object="${store}" th:action="@{/store/adicionar}" method="post">
+        <form th:object="${store}" th:action="@{/store/adicionar}" method="post" id="form-adicionar">
             <div th:replace="~{layouts :: formulario-salvar}"></div>
             <div th:replace="~{layouts :: botoes-formulario-salvar}"></div>
         </form>
